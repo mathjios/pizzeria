@@ -27,19 +27,26 @@ $role = $_SESSION["role"];
 
         <div class="container">
             <h2>Notre Menu</h2>
-
+            
             <div class="pizza-grid">
                 <?php foreach($pizzas as $p): ?>
-
                     <div class="pizza-card">
-                        <img src="images/<?= $p['img'] ?>" alt="<?= $p['name'] ?>">
+                        <?php 
+                        $imgPath = 'images/' . $p['img'];
+                        if(file_exists($imgPath)): 
+                        ?>
+                        <img src="<?= $imgPath ?>" alt="<?= $p['name'] ?>">
+                        <?php else: ?>
+                            <p>Image non disponible pour <?= $p['name'] ?></p>
+                        <?php endif; ?>
+            
                         <h3><?= $p['name'] ?></h3>
                         <p><?= $p['ingredients'] ?></p>
                         <p><?= $p['price'] ?>€</p>
                         <button class="addCart" data-name="<?= $p['name'] ?>" data-price="<?= $p['price'] ?>">Ajouter</button>
                     </div>
-                    <?php endforeach; ?>
-                </div>
+                <?php endforeach; ?>
+            </div>
 
                 <div id="cart">
                     <h3>Mon panier</h3>
