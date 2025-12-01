@@ -1,0 +1,47 @@
+CREATE DATABASE IF NOT EXISTS pizzeria;
+USE pizzeria;
+
+-- TABLE UTILISATEURS
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(200) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('client','admin') DEFAULT 'client',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- TABLE PIZZAS
+CREATE TABLE pizzas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(6,2) NOT NULL,
+    image VARCHAR(255) DEFAULT 'default.jpg'
+);
+
+-- TABLE COMMANDES
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    postal VARCHAR(10) NOT NULL,
+    total DECIMAL(7,2) NOT NULL,
+    status ENUM('en attente','en préparation','livrée') DEFAULT 'en attente',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- TABLE ITEMS DANS UNE COMMANDE
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    pizza_id INT NOT NULL,
+    quantity INT DEFAULT 1,
+    price DECIMAL(6,2) NOT NULL,
+
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (pizza_id) REFERENCES pizzas(id)
+);
+

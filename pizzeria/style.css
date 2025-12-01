@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff5e6;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #e63946;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+header nav a {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    opacity: 0.8;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 120px auto 50px auto;
+}
+
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.pizza-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pizza-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.pizza-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.pizza-card:hover img {
+    transform: scale(1.05);
+}
+
+.pizza-card h3 {
+    color: #e63946;
+    margin: 12px 0 6px 0;
+}
+
+.pizza-card p {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.pizza-card button, .pizza-card a.addCart {
+    background: #f1c40f;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+}
+
+.pizza-card button:hover, .pizza-card a.addCart:hover {
+    background: #e1b500;
+}
+
+#cart {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    width: 300px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+
+#cart h3 {
+    color: #e63946;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item button {
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.cart-item button:hover {
+    opacity: 0.85;
+}
+
+#cart-total {
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.delivery-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.delivery-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.delivery-box button {
+    background: #e63946;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+
+.delivery-box button:hover {
+    opacity: 0.9;
+}
+
+.order-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #f1c40f;
+    color: #333;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background: #e1b500;
+}
+
+.auth-box {
+    width: 350px;
+    margin: 150px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #e63946;
+    color: white;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.auth-box button:hover {
+    opacity: 0.9;
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+}
+
+
+.order-box {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+
+@media(max-width:900px){
+    #cart {
+        position: static;
+        width: 100%;
+        max-height: none;
+        margin-bottom: 30px;
+    }
+    .container {
+        margin-top: 30px;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header nav {
+        margin-top: 10px;
+    }
+}
