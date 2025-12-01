@@ -1,13 +1,14 @@
 CREATE DATABASE IF NOT EXISTS pizzeria;
 USE pizzeria;
 
--- TABLE UTILISATEURS
 CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(200) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('client','admin') DEFAULT 'client',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id INT AUTO_INCREMENT PRIMARY KEY,                     
+    username VARCHAR(100) NOT NULL,                        
+    email VARCHAR(200) UNIQUE NOT NULL,                   
+    phone VARCHAR(20) DEFAULT NULL,                        
+    password VARCHAR(255) NOT NULL,                        
+    role ENUM('client','admin') DEFAULT 'client',          
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP        
 );
 
 -- TABLE PIZZAS
